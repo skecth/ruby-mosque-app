@@ -1,16 +1,40 @@
 <div id="<%= dom_id register %>">
-  <p>
-    <strong>Activity tittle:</strong>
-    <%= activity.activity_tittle %>
-  </p>
-  <p>
-    <strong>Registrationtime:</strong>
-    <%= register.registrationTime %>
-  </p>
-    <%=current_kariah.username%>
+
+  <% Activity.all.each do |activity| %>
+<div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+<%= content_tag :option, activity.activity_tittle, value: activity.id %>    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+  <% end %>
+ 
+    
+
   
   <p>
-    <strong>Registrationdate:</strong>
+    <strong>Registration time:</strong>
+    <%= register.registrationTime %>
+  </p>
+
+   <p>
+    <strong>Activity Title</strong>
+    <%= register.activity.activity_tittle %>
+  </p>
+
+    <p>
+    <strong>Name</strong>
+    <%= register.kariah.username %>
+  </p>
+
+   <p>
+    <strong>Fee</strong>
+    <%= register.activity.registration_fee %>
+  </p>
+  
+  <p>
+    <strong>Registration date:</strong>
     <%= register.registrationDate %>
   </p>
 

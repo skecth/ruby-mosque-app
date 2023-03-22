@@ -6,10 +6,12 @@ class ActivitiesController < ApplicationController
   # GET /activities or /activities.json
   def index
     @activities = Activity.all
+    @kariahs = @activities.kariahs
   end
 
   # GET /activities/1 or /activities/1.json
   def show
+    @user = User.includes(registrations: :activity).find(params[:id])
   end
 
   # GET /activities/new
@@ -73,6 +75,6 @@ class ActivitiesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def activity_params
-      params.require(:activity).permit(:activity_tittle, :activity_date, :activity_time, :activity_type, :ajk_id)
+      params.require(:activity).permit(:activity_tittle, :activity_date, :activity_time, :activity_type, :registration_fee, :ajk_id)
     end
 end

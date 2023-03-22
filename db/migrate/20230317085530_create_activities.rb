@@ -5,6 +5,7 @@ class CreateActivities < ActiveRecord::Migration[7.0]
       t.date :activity_date
       t.time :activity_time
       t.string :activity_type
+      #t.integer :registration_fee
 
       t.timestamps
     end

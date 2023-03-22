@@ -4,7 +4,7 @@ class RegistersController < ApplicationController
   # GET /registers or /registers.json
   def index
     @registers = Register.all
-    @activities = Activity.all
+    @registers = Register.joins(:activity)
   end
 
   # GET /registers/1 or /registers/1.json
@@ -66,6 +66,6 @@ class RegistersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def register_params
-      params.require(:register).permit(:registrationTime, :registrationDate)
+      params.require(:register).permit(:registrationTime, :registrationDate, :activity_id, :registration_fee, :kariah_id)
     end
 end

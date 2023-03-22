@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_21_090616) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_22_070459) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,6 +22,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_090616) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "ajk_id"
+    t.integer "registration_fee"
     t.index ["ajk_id"], name: "index_activities_on_ajk_id"
   end
 
@@ -82,6 +83,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_090616) do
     t.date "registrationDate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "activity_id", null: false
+    t.bigint "kariah_id", null: false
+    t.index ["activity_id"], name: "index_registers_on_activity_id"
+    t.index ["kariah_id"], name: "index_registers_on_kariah_id"
   end
 
+  add_foreign_key "registers", "activities"
+  add_foreign_key "registers", "kariahs"
 end

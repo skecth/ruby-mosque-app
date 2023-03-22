@@ -10,6 +10,13 @@
       </ul>
     </div>
   <% end %>
+ 
+
+    <% Activity.all.each do |activity| %>
+    <%= form.text_field, activity.activity_tittle, value: activity.id %>
+  <% end %>
+
+
 
   <div>
     <%= form.label :registrationTime, style: "display: block" %>
