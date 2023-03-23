@@ -14,6 +14,11 @@ class RegistersController < ApplicationController
   # GET /registers/new
   def new
     @register = Register.new
+
+    activity_id = params[:activity_id]
+    @activity = Activity.find(activity_id)
+    session[:activity] = @activity.attributes
+  
   end
 
   # GET /registers/1/edit

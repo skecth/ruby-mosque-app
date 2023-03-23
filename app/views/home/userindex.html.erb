@@ -1,6 +1,15 @@
 
-<h1>Hi,<%=current_kariah.username%></h1>
-<p>This is kariah home index</p>
-
-  
-
+<div class="row">
+  <% Activity.all.each do |activity| %>
+    <div class="col-md-4 mb-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><%= activity.id %></h5>
+          <%= link_to "Show this activity", activity %>
+          
+          
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

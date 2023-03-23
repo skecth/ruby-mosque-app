@@ -3,12 +3,8 @@ Rails.application.routes.draw do
   devise_for :kariahs
   devise_for :ajks
   root 'home#index'
-  #get '/ajks' => "home#index", :as => :ajk_root
+  #get '/registers/' to: 'register#register_show_new'
   resources :activities
   get '/kariahs' => "home#userindex", :as => :kariah_root
-  
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
 end

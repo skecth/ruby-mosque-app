@@ -10,15 +10,14 @@
       </ul>
     </div>
   <% end %>
- 
-
-    <% Activity.all.each do |activity| %>
-    <%= form.text_field, activity.activity_tittle, value: activity.id %>
-  <% end %>
-
-
-
-  <div>
+    <div class="activity-card">
+      <h2><%= @activity["activity_tittle"] %></h2>
+  </div>
+    <%= form.number_field :kariah_id, id: :activity_user_id,value:current_kariah.id %>
+    <%= form.number_field :kariah_id, id: :activity_user_id,value:current_kariah.email %>
+    <%= form.number_field :kariah_id, id: :activity_user_id,value:current_kariah.username %>
+    <%= form.number_field :kariah_id, id: :activity_user_id,value:current_kariah.phoneNo %>
+    <%= form.number_field :kariah_id, id: :activity_user_id,value:current_kariah.address %>
     <%= form.label :registrationTime, style: "display: block" %>
     <%= form.time_field :registrationTime %>
   </div>

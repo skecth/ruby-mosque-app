@@ -6,18 +6,19 @@ class ActivitiesController < ApplicationController
   # GET /activities or /activities.json
   def index
     @activities = Activity.all
-    @kariahs = @activities.kariahs
+    
   end
 
   # GET /activities/1 or /activities/1.json
   def show
-    @user = User.includes(registrations: :activity).find(params[:id])
+    #@user = User.includes(registrations: :activity).find(params[:id])
   end
 
   # GET /activities/new
   def new
     #@activity = Activity.new (was)
     @activity = current_ajk.activity.build
+    
   end
 
   # GET /activities/1/edit

@@ -1,18 +1,6 @@
 <div id="<%= dom_id register %>">
 
-  <% Activity.all.each do |activity| %>
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-<%= content_tag :option, activity.activity_tittle, value: activity.id %>    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-  <% end %>
  
-    
-
-  
   <p>
     <strong>Registration time:</strong>
     <%= register.registrationTime %>

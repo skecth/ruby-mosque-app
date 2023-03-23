@@ -3,8 +3,13 @@
 <%= render @activity %>
 
 <div>
+<%if ajk_signed_in?%>
   <%= link_to "Edit this activity", edit_activity_path(@activity) %> |
   <%= link_to "Back to activities", activities_path %>
-
   <%= button_to "Destroy this activity", @activity, method: :delete %>
+  <%else%>
+  <%= link_to "New register", new_register_path(activity_id: @activity.id), method: :post %>
+
+  <%end%>
 </div>
+
